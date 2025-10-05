@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cargo run --quiet -- --kdl-usage >docs/usage.kdl
-usage generate md --file docs/usage.kdl --out-file USAGE.md
+usage generate md --file docs/usage.kdl --out-file README.md
