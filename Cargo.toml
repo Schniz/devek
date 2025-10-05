@@ -3,6 +3,8 @@ name = "devek"
 version = "0.0.1"
 edition = "2024"
 repository = "https://github.com/Schniz/devek.git"
+license = "MIT"
+description = "A simple CLI for copying HTML to clipboard."
 
 [dependencies]
 arboard = "3.6.1"
