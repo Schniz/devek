@@ -9,5 +9,8 @@ flag --type help="Text content to set in the clipboard" {
         choices text html
     }
 }
+flag --fallback help="Fallback plaintext content for HTML clipboard entries" {
+    arg <FALLBACK>
+}
 arg "[CONTENT]" help="HTML content to set in the clipboard. Use `-` or omit to read from stdin" required=#false default=-
 

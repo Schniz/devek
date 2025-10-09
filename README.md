@@ -19,7 +19,7 @@ Pipe content from stdin
 ``` node -p '"Hello world".bold()' | devek --type html - ```
 
 
-- **Usage**: `devek [--type <TYPE>] [CONTENT]`
+- **Usage**: `devek [--type <TYPE>] [--fallback <FALLBACK>] [CONTENT]`
 
 ## Arguments
 
@@ -41,3 +41,7 @@ By default, the content is set as HTML. Use `--type text` to set as plain text.
 
 - `text`
 - `html`
+
+### `--fallback <FALLBACK>`
+
+Fallback plaintext content for HTML clipboard entries

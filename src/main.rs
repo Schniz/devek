@@ -50,6 +50,9 @@ struct Cli {
     /// Use `-` or omit to read from stdin.
     #[clap(default_value = "-")]
     content: String,
+    /// Fallback plaintext content for HTML clipboard entries.
+    #[clap(long)]
+    fallback: Option<String>,
 }
 
 fn main() {
@@ -72,8 +75,10 @@ fn main() {
     match cli.r#type {
         Type::Text => clipboard.set_text(content).unwrap(),
         Type::Html => {
-            let alt_text = html2text::from_read(content.as_bytes(), usize::MAX).ok();
-            clipboard.set_html(content, alt_text).unwrap()
+            let fallback = cli
+                .fallback
+                .or_else(|| html2text::from_read(content.as_bytes(), usize::MAX).ok());
+            clipboard.set_html(content, fallback).unwrap()
         }
     }
 }
